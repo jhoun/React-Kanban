@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./models');
 const Card = db.Card;
-const main = require('./routes/main');
+const api = require('./routes/api');
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
@@ -15,6 +15,16 @@ const config = require('./webpack.config.js');
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
+
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
+
+app.use((req, res, next) => {
+  next('route');
+})
+
+app.use('/api', api);
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
@@ -50,23 +60,15 @@ if (isDeveloping) {
   });
 }
 
-app.use(bodyParser.urlencoded({
-  extended:true
-}));
 
-app.use((req, res, next) => {
-  next('route');
-})
 
-app.use('/main', main);
-
-// When you want to get to '/'' path
-app.get('/', (req,res) => {
-    Card.findAll()
-    .then((card)  => {
-      res.json(card);
-    })
-})
+// // When you want to get to '/'' path
+// app.get('/', (req,res) => {
+//     Card.findAll()
+//     .then((card)  => {
+//       res.json(card);
+//     })
+// })
 
 // if(!module.parent){
 //     app.listen(PORT, () => {
@@ -83,6 +85,7 @@ const onStart = (err) => {
     `==> 🌎 Listening on port ${port}. ` +
     `Open up http://localhost:${port}/ in your browser.`
   );
+  db.sequelize.sync();
 };
 
 app.listen(port, 'localhost', onStart);
