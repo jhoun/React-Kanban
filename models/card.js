@@ -1,11 +1,41 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Card = sequelize.define('Card', {
-    title: DataTypes.STRING,
-    priority: DataTypes.STRING,
-    status: DataTypes.STRING,
-    createdBy: DataTypes.STRING,
-    assignedTo: DataTypes.STRING
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    priority: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    createdBy: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    assignedTo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    }
   }, {
     classMethods: {
       associate: function(models) {
