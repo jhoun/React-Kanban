@@ -17,7 +17,14 @@
     "url": "https://github.com/jhoun/React-Kanban/issues"
   },
   "homepage": "https://github.com/jhoun/React-Kanban#readme",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "gulp-nodemon": "^2.2.1",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.1"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
