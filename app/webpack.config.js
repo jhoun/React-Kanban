@@ -52,12 +52,11 @@ module.exports = {
       use: 'url?limit=10000'
     }, {
       test: /(\.scss$|\.css$)/,
-      use: [
-        'style-loader',
-        'css?modules&importLoaders=1' +
-        '&localIdentName=[path][local]__[hash:base64:5]!sass',
-        'sass',
-      ],
+       use: [
+        "style-loader",
+        "css-loader?modules&importLoaders=1" + "&localIdentName=[path][local]__[hash:base64:5]",
+        "sass-loader"
+      ]
     }],
   }
 };
