@@ -1,12 +1,13 @@
 import React from 'react';
-import styles from './KanBanComponent.scss';
-import List from './List';
+import styles from './Column.scss';
+import ColumnItem from './ColumnItem';
 
-class KanBanComponent extends React.Component {
+class Column extends React.Component {
   render() {
+    console.log('this.props: ', this.props);
     let listItemNode = this.props.serverData.map((item) => {
       return (
-        <List
+        <ColumnItem
           title={item.title}
           priority={item.priority}
           status={item.status}
@@ -17,8 +18,7 @@ class KanBanComponent extends React.Component {
       )
     })
     return (
-    <div className={styles.kanBanComponent}>
-      <h3>KanBanComponent</h3>
+    <div className={styles.list}>
       { listItemNode }
     </div>
     )
@@ -26,4 +26,4 @@ class KanBanComponent extends React.Component {
 }
 
 
-export default KanBanComponent;
+export default Column;

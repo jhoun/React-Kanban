@@ -1,5 +1,5 @@
 import React from 'react';
-import KanBanComponent from './KanBanComponent';
+import ColumnPage from './ColumnPage';
 import Header from '../static/Header';
 
 class App extends React.Component {
@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
     <div>
       <Header />
-      <KanBanComponent serverData={data}/>
+      <ColumnPage serverData={data}/>
     </div>
     )
   }
