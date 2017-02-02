@@ -17,7 +17,6 @@ class App extends React.Component {
 
   onServerData(data) {
     const parsedServerData = JSON.parse(data.currentTarget.response);
-    console.log('parsedServerData: ', parsedServerData);
     this.setState({data: parsedServerData})
   }
 
@@ -38,10 +37,11 @@ class App extends React.Component {
   }
 
   render() {
+    const {data} = this.state;
     return (
     <div>
       <Header />
-      <KanBanComponent />
+      <KanBanComponent serverData={data}/>
     </div>
     )
   }

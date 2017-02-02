@@ -5,7 +5,6 @@ const Card = db.Card;
 
 router.route('/')
   .get((req, res) => {
-    console.log('req: ', req);
     Card.findAll()
     .then((card)  => {
       res.json(card);
