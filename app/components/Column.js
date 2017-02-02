@@ -4,7 +4,7 @@ import ColumnItem from './ColumnItem';
 
 class Column extends React.Component {
   render() {
-    console.log('this.props: ', this.props);
+
     let listItemNode = this.props.serverData.map((item) => {
       return (
         <ColumnItem
@@ -18,7 +18,7 @@ class Column extends React.Component {
       )
     })
     return (
-    <div className={styles.list}>
+    <div className={styles.column}>
       { listItemNode }
     </div>
     )

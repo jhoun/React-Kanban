@@ -1,5 +1,5 @@
 import React from 'react';
-import ColumnPage from './ColumnPage';
+import ColumnsPage from './ColumnsPage';
 import Header from '../static/Header';
 
 class App extends React.Component {
@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
     <div>
       <Header />
-      <ColumnPage serverData={data}/>
+      <ColumnsPage serverData={data}/>
     </div>
     )
   }
