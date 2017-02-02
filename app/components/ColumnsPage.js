@@ -3,26 +3,17 @@ import styles from './ColumnsPage.scss';
 import Column from './Column';
 
 class ColumnsPage extends React.Component {
-
-
-
   render() {
     function isInQueue(value){
-      if (value.status === "queue"){
-        return value;
-      }
+      return value.status === "queue";
     }
 
     function isInProgress(value){
-      if (value.status === "inProgress"){
-        return value;
-      }
+      return value.status === "inProgress";
     }
 
     function isDone(value){
-      if (value.status === "done"){
-        return value;
-      }
+      return value.status === "done";
     }
 
     var inInQueue = this.props.serverData.filter(isInQueue);
@@ -32,11 +23,21 @@ class ColumnsPage extends React.Component {
     return (
     <div className={styles.columnPage}>
 
-      <Column serverData={inInQueue}/>
+      <div>
+        <h3>In Queue</h3>
+          <Column serverData={inInQueue}/>
+      </div>
 
-      <Column serverData={inProgress}/>
+      <div>
+        <h3>In Progress</h3>
+        <Column serverData={inProgress}/>
+      </div>
 
-      <Column serverData={done}/>
+      <div>
+        <h3>Done</h3>
+        <Column serverData={done}/>
+      </div>
+
     </div>
     )
   }

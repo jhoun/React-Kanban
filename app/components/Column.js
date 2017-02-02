@@ -4,7 +4,6 @@ import ColumnItem from './ColumnItem';
 
 class Column extends React.Component {
   render() {
-
     let listItemNode = this.props.serverData.map((item) => {
       return (
         <ColumnItem
