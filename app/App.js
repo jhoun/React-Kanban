@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
     <div className="App">
-      <h1>React Reddit Demo</h1>
+      <h1>Kanban Main Page</h1>
       <Page />
     </div>
     )

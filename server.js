@@ -4,13 +4,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./models');
 const Card = db.Card;
-const api = require('./routes/api');
+const cards = require('./routes/card');
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./webpack.config.js');
+const config = require('./app/webpack.config.js');
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   next('route');
 })
 
-app.use('/api', api);
+app.use('/api/card', cards);
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
@@ -59,23 +59,6 @@ if (isDeveloping) {
     res.end();
   });
 }
-
-
-
-// // When you want to get to '/'' path
-// app.get('/', (req,res) => {
-//     Card.findAll()
-//     .then((card)  => {
-//       res.json(card);
-//     })
-// })
-
-// if(!module.parent){
-//     app.listen(PORT, () => {
-//     console.log('Server started on port 8080');
-//     db.sequelize.sync();
-//   });
-// }
 
 const onStart = (err) => {
   if (err) {
