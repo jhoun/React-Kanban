@@ -8,6 +8,8 @@ class KanBanComponent extends React.Component {
     <div className={styles.kanBanComponent}>
       <h3>KanBanComponent</h3>
       <List />
+      <List />
+      <List />
     </div>
     )
   }
