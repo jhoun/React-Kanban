@@ -6,11 +6,24 @@ const initialState = List();
 const kanBanPostReducer =  (state = initialState, action) => {
   let newState = state;
 
+  function indexedCards(item){
+    return List(item)
+  }
+
   switch(action.type) {
     case SET_TASKS:
-      return List(action.data);
+      let index = action.data.map((item, i) => {
+        item['index'] = i
+        return item
+      })
+      return indexedCards(index);
+
     case DELETE_TASK:
-      return newState.delete(action.data);
+      let newIndex = newState.delete(action.data).map((item, i) =>{
+        item['index'] = i
+        return item
+      })
+      return indexedCards(newIndex);
 
     default:
       return newState;

@@ -1,7 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styles from './ColumnItem.scss';
+import { deleteTask } from '../actions/kanBanPostActions';
 
 class ColumnItem extends React.Component {
+  constructor(){
+    super();
+    this.deleteTask = this.deleteTask.bind(this);
+  }
+
+  deleteTask(){
+    const { dispatch } = this.props;
+    dispatch(deleteTask(this.props.index))
+  }
   render() {
     return (
     <div className={styles.columnItem}>
@@ -10,11 +21,19 @@ class ColumnItem extends React.Component {
       <h3>assignedTo: {this.props.assignedTo}</h3>
       <div className={styles.createdBy}>{this.props.createdBy}</div>
       <button>Edit</button>
-      <button>Delete</button>
+      <button onClick={this.deleteTask}>Delete</button>
     </div>
     )
+  }
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+
   }
 }
 
 
-export default ColumnItem;
+export default connect(
+  mapStateToProps
+)(ColumnItem);

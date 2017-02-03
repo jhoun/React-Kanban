@@ -4,7 +4,7 @@ import ColumnItem from './ColumnItem';
 
 class Column extends React.Component {
   render() {
-    let listItemNode = this.props.serverData.map((item) => {
+    let listItemNode = this.props.serverData.map((item, i) => {
       return (
         <ColumnItem
           title={item.title}
@@ -13,6 +13,7 @@ class Column extends React.Component {
           assignedTo={item.assignedTo}
           createdBy={item.createdBy}
           key={item.id}
+          index={item.index}
         />
       )
     })

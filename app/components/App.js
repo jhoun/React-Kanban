@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   onServerData(data) {
-    console.log('this.props: ', this.props);
     const { dispatch } = this.props;
     const parsedServerData = JSON.parse(data.currentTarget.response);
     dispatch(setTasks(parsedServerData))
@@ -41,6 +40,7 @@ class App extends React.Component {
   }
 
   render() {
+    //the data from the store via mapStateToProps
     const {data} = this.props;
     return (
     <div>
@@ -51,14 +51,14 @@ class App extends React.Component {
   }
 };
 
+//coming in from the store
 const mapStateToProps = (state, ownProps) => {
-  console.log('state: ', state.kanBanPostReducer.toJS());
   return {
     data: state.kanBanPostReducer.toJS()
   }
 }
 
-
+//connect to the store
 export default connect(
   mapStateToProps
 )(App);
