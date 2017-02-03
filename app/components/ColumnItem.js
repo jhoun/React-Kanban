@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ColumnItem.scss';
 
-
 class ColumnItem extends React.Component {
   render() {
     return (

@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Immutable from 'immutable';
 import ColumnsPage from './ColumnsPage';
+import New from './New';
 import Header from '../static/Header';
 
 class App extends React.Component {
@@ -47,4 +50,14 @@ class App extends React.Component {
   }
 };
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  console.log('state: ', state.kanBanPostReducer.toJS());
+  return {
+    data: state.kanBanPostReducer.toJS()
+  }
+}
+
+
+export default connect(
+  mapStateToProps
+)(App);
