@@ -4,23 +4,24 @@ import Immutable from 'immutable';
 import ColumnsPage from './ColumnsPage';
 import New from './New';
 import Header from '../static/Header';
+import { setTasks } from '../actions/kanBanPostActions'
 
 class App extends React.Component {
   constructor () {
     super();
 
     //React only updates if there is a change in state
-    this.state = {
-      data: []
-    }
+
 
     this.onServerData = this.onServerData.bind(this);
     this.onServerError = this.onServerError.bind(this);
   }
 
   onServerData(data) {
+    console.log('this.props: ', this.props);
+    const { dispatch } = this.props;
     const parsedServerData = JSON.parse(data.currentTarget.response);
-    this.setState({data: parsedServerData})
+    dispatch(setTasks(parsedServerData))
   }
 
   onServerError(error) {
@@ -40,7 +41,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {data} = this.state;
+    const {data} = this.props;
     return (
     <div>
       <Header />
