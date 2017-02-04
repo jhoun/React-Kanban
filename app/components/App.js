@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Immutable from 'immutable';
 import ColumnsPage from './ColumnsPage';
-import New from './New';
 import Header from '../static/Header';
 import { setTasks } from '../actions/kanBanPostActions'
 
@@ -38,23 +37,6 @@ class App extends React.Component {
   componentWillMount(){
     this.loadDataFromServer();
   }
-
-  // deleteServerData(data){
-  //   const{ dispatch } = this.props;
-  //   console.log('{dispatch}: ', {dispatch});
-  // }
-
-  // deleteServerError(error){
-  //   console.log('error: ', error);
-  // }
-
-  // deleteDataFromServer(){
-  //   const oReq2 = new XMLHttpRequest();
-  //   oReq.addEventListener("load", this.deleteServerData);
-  //   oReq.addEventListener("error", this.deleteServerError);
-  //   oReq.open("DELETE", "/api/card/:id");
-  //   oReq.send();
-  // }
 
   render() {
     //the data from the store via mapStateToProps

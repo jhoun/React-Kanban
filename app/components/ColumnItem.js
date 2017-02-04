@@ -24,7 +24,6 @@ class ColumnItem extends React.Component {
     oReq.send();
   }
 
-
   render() {
     return (
     <div className={styles.columnItem}>
