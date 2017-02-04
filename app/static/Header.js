@@ -4,13 +4,10 @@ import { Link } from 'react-router';
 
 const Header = () => (
   <div className={styles.header}>
-    <header>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to="/new-page">New Page</Link></li>
-      </ul>
-        <h2>Kanban</h2>
-    </header>
+    <div className={styles.title}> Kanban </div>
+    <div className={styles.newTask}>
+      <button><Link to="/new-page">New Page</Link></button>
+    </div>
   </div>
 );
 

@@ -23,7 +23,13 @@ class NewPage extends React.Component {
     return (
     <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Task: <br></br>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <br></br>
+          Priority: <br></br>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <br></br>
+          AssignedTo: <br></br>
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />

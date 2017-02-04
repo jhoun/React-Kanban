@@ -21,10 +21,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={ hashHistory }>
       <Route path="/" component={ App }>
-        <IndexRoute component={ App } >
-        </IndexRoute>
-      </Route>
+        <IndexRoute component={ ColumnsPage } />
         <Route path="/new-page" component={ NewPage } />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('content')

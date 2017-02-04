@@ -1,12 +1,20 @@
 
 .header{
-  ;
+  background-color:#3B4048;
   height: 70px;
   position: relative;
 
-  h2 {
+  .title {
     padding-top: 20px;
     color: white;
   }
+
+  .newTask {
+    float: right;
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+  }
+
 }
 
