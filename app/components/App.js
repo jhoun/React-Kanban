@@ -39,6 +39,23 @@ class App extends React.Component {
     this.loadDataFromServer();
   }
 
+  // deleteServerData(data){
+  //   const{ dispatch } = this.props;
+  //   console.log('{dispatch}: ', {dispatch});
+  // }
+
+  // deleteServerError(error){
+  //   console.log('error: ', error);
+  // }
+
+  // deleteDataFromServer(){
+  //   const oReq2 = new XMLHttpRequest();
+  //   oReq.addEventListener("load", this.deleteServerData);
+  //   oReq.addEventListener("error", this.deleteServerError);
+  //   oReq.open("DELETE", "/api/card/:id");
+  //   oReq.send();
+  // }
+
   render() {
     //the data from the store via mapStateToProps
     const {data} = this.props;

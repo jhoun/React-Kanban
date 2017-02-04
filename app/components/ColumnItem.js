@@ -10,9 +10,21 @@ class ColumnItem extends React.Component {
   }
 
   deleteTask(){
+    console.log('this.props.id: ', this.props.positio);
     const { dispatch } = this.props;
-    dispatch(deleteTask(this.props.index))
+    dispatch(deleteTask(this.props.position))
+    this.deleteDataFromServer();
   }
+
+
+  deleteDataFromServer(){
+    const oReq = new XMLHttpRequest();
+    console.log('this: ', this);
+    oReq.open("DELETE", `/api/card/${this.props.id}`);
+    oReq.send();
+  }
+
+
   render() {
     return (
     <div className={styles.columnItem}>

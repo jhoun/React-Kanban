@@ -9,6 +9,7 @@ export const setTasks = (data) => {
 }
 
 export const deleteTask = (data) => {
+  console.log('data: ', data);
   return {
     type: DELETE_TASK,
     data,
