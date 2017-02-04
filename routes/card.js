@@ -26,8 +26,8 @@ router.route('/')
         res.json(card)
       })
       .catch((e) =>{
-        whichError(e.errors[0].message, req);
-       res.redirect('/portfolio/new');
+         console.error(e);
+        res.json(e);
       });
   });
 

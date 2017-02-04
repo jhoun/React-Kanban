@@ -20,7 +20,12 @@ app.use(bodyParser.urlencoded({
   extended:true
 }));
 
+app.use(bodyParser.json({
+  extended:true
+}));
+
 app.use((req, res, next) => {
+  console.log('req.body: ', req.body);
   next('route');
 })
 

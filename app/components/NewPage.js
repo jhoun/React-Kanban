@@ -8,6 +8,7 @@ class NewPage extends React.Component {
     this.state = {
       task: '',
       priority: '',
+      status: 'inProgress',
       assignedTo: ''
     };
 
@@ -27,19 +28,35 @@ class NewPage extends React.Component {
   }
 
   myHandleSubmit(event){
+
     const { dispatch } = this.props;
     const newCard = {
-      task: this.state.task,
+      title: this.state.task,
       priority: this.state.priority,
+      status: this.state.status,
+      createdBy: this.state.createdBy,
       assignedTo: this.state.assignedTo
     }
-    dispatch(addTask(newCard))
+
+    const oReq = new XMLHttpRequest();
+    console.log('JSON.stringify(newCard): ', JSON.stringify(newCard));
+    oReq.addEventListener("load", ()=>{
+      dispatch(addTask(newCard))
+    });
+    oReq.addEventListener("error", ()=>{
+      alert('error')
+    });
+    oReq.open("POST", `/api/card`);
+    oReq.setRequestHeader('Content-Type', 'application/json');
+    oReq.send(JSON.stringify(newCard));
+
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.myHandleSubmit(event);
   }
+
 
   render() {
 
@@ -51,7 +68,7 @@ class NewPage extends React.Component {
           <input
             name="task"
             type="text"
-            checked={this.state.task}
+            value={this.state.task}
             onChange={this.handleInputChange} />
         </label>
         <br />
@@ -62,6 +79,26 @@ class NewPage extends React.Component {
             name="priority"
             type="text"
             value={this.state.priority}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Status:
+          <br />
+          <input
+            name="status"
+            type="text"
+            value={this.state.status}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+        Created By:
+        <br />
+          <input
+            name="createdBy"
+            type="text"
+            value={this.state.createdBy}
             onChange={this.handleInputChange} />
         </label>
         <br />
