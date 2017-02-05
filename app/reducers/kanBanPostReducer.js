@@ -28,10 +28,6 @@ const kanBanPostReducer =  (state = initialState, action) => {
 
     case ADD_TASK:
       let addIndex = newState.push(action.data).map((item, i) =>{
-        item['task'] = action.data.task,
-        item['priority'] = action.data.priority,
-        item['assignedTo'] = action.data.assignedTo
-        // console.log('item: ', item);
         return item
       })
       return indexedCards(addIndex);

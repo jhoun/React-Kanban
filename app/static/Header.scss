@@ -1,19 +1,36 @@
 
 .header{
-  background-color:#3B4048;
-  height: 70px;
-  position: relative;
+  background-color:#3C4048;
+  height: 50px;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+
+
 
   .title {
-    padding-top: 20px;
+    padding-top: 25px;
     color: white;
+    margin-left: 20px;
   }
 
-  .newTask {
-    float: right;
-    color: white;
+  .btn {
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 14px;
+    background: #3B4048;
+    padding: 5px 8px 5px 8px;
+    border: solid white 1px;
     text-decoration: none;
-    margin-right: 30px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+
+  }
+
+  .btn:hover {
+    background: #6c6c6e;
+    text-decoration: none;
   }
 
 }

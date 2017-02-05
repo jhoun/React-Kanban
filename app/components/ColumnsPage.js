@@ -50,7 +50,7 @@ class ColumnsPage extends React.Component {
       return value.status === "done";
     }
 
-    console.log('this.props: ', this.props.data);
+
     var inInQueue = this.props.data.filter(isInQueue);
     var inProgress = this.props.data.filter(isInProgress);
     var done = this.props.data.filter(isDone);
@@ -81,7 +81,6 @@ class ColumnsPage extends React.Component {
 
 //coming in from the store
 const mapStateToProps = (state, ownProps) => {
-  console.log('state: ', state.kanBanPostReducer.toJS());
   return {
     data: state.kanBanPostReducer.toJS()
   }

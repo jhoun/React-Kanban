@@ -9,6 +9,7 @@ class NewPage extends React.Component {
       task: '',
       priority: '',
       status: 'inProgress',
+      createdBy: '',
       assignedTo: ''
     };
 
@@ -28,7 +29,6 @@ class NewPage extends React.Component {
   }
 
   myHandleSubmit(event){
-
     const { dispatch } = this.props;
     const newCard = {
       title: this.state.task,
@@ -49,12 +49,11 @@ class NewPage extends React.Component {
     oReq.open("POST", `/api/card`);
     oReq.setRequestHeader('Content-Type', 'application/json');
     oReq.send(JSON.stringify(newCard));
-
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.myHandleSubmit(event);
+
   }
 
 
