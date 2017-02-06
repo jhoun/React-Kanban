@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTask } from '../actions/kanBanPostActions';
+import { Link } from 'react-router';
 
 class NewPage extends React.Component {
   constructor(props) {
@@ -39,7 +40,6 @@ class NewPage extends React.Component {
     }
 
     const oReq = new XMLHttpRequest();
-    console.log('JSON.stringify(newCard): ', JSON.stringify(newCard));
     oReq.addEventListener("load", ()=>{
       dispatch(addTask(newCard))
     });
@@ -52,8 +52,9 @@ class NewPage extends React.Component {
   }
 
   handleSubmit(event) {
+    this.props.router.push('/');
     this.myHandleSubmit(event);
-
+    event.preventDefault();
   }
 
 
@@ -110,7 +111,10 @@ class NewPage extends React.Component {
             value={this.state.assignedTo}
             onChange={this.handleInputChange} />
         </label>
-        <input type="submit" value="Submit"/>
+        <br />
+       <input type="submit" value="Submit"/>
+       <br />
+      <Link to="/"><input type="submit" value="Back"/></Link>
       </form>
     );
   }
