@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './ColumnItem.scss';
 import { deleteTask } from '../actions/kanBanPostActions';
+import { Link } from 'react-router';
 
 class ColumnItem extends React.Component {
   constructor(){
@@ -30,7 +31,7 @@ class ColumnItem extends React.Component {
       <h3>priority: {this.props.priority}</h3>
       <h3>assignedTo: {this.props.assignedTo}</h3>
       <div className={styles.createdBy}>{this.props.createdBy}</div>
-      <button>Edit</button>
+      <Link to="edit"><button>Edit</button></Link>
       <button onClick={this.deleteTask}>Delete</button>
     </div>
     )

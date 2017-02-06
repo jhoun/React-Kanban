@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addTask } from '../actions/kanBanPostActions';
 import { Link } from 'react-router';
 
-class NewPage extends React.Component {
+class NewTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,9 @@ class NewPage extends React.Component {
   }
 
   myHandleSubmit(event){
+    console.log('this.props: ', this.props);
     const { dispatch } = this.props;
+    console.log('this.state: ', this.state);
     const newCard = {
       title: this.state.task,
       priority: this.state.priority,
@@ -132,4 +134,4 @@ const mapStateToProps = (state, ownProps) => {
 //connect to the store
 export default connect(
   mapStateToProps
-)(NewPage);
+)(NewTask);

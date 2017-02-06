@@ -11,7 +11,8 @@ import { Provider } from 'react-redux';
 import * as reducers from './reducers';
 import App from "./components/App";
 import ColumnsPage from "./components/ColumnsPage";
-import NewPage from "./components/NewPage";
+import NewTask from "./components/NewTask";
+import Edit from "./components/Edit";
 
 const reducer = combineReducers(reducers);
 const store = createStore(reducer);
@@ -22,7 +23,8 @@ ReactDOM.render(
     <Router history={ hashHistory }>
       <Route path="/" component={ App }>
         <IndexRoute component={ ColumnsPage } />
-        <Route path="/new-page" component={ NewPage } />
+        <Route path="/new-task" component={ NewTask } />
+        <Route path="/edit" component={ Edit } />
       </Route>
     </Router>
   </Provider>,

@@ -13,7 +13,6 @@ const kanBanPostReducer =  (state = initialState, action) => {
   switch(action.type) {
     case SET_TASKS:
       let index = action.data.map((item, i) => {
-        console.log('item: ', item);
         item['position'] = i
         return item
       })

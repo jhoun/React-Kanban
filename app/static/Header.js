@@ -6,7 +6,7 @@ const Header = () => (
   <div className={styles.header}>
     <div className={styles.title}> KANBAN </div>
     <div className={styles.newTask}>
-      <Link className={styles.btn} to="/new-page"> + NEW TASK</Link>
+      <Link className={styles.btn} to="/new-task"> + NEW TASK</Link>
     </div>
   </div>
 );
