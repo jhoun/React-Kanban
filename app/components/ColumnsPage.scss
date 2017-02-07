@@ -3,11 +3,12 @@
   display:flex;
   flex-flow: row wrap;
   padding-bottom: 100px;
+  font-family: 'Roboto', sans-serif;
 
-  h3 {
+  .columns {
+    margin-top: 25px;
     text-align: center;
-    min-width: 25em;
-
+    min-width: 30em;
   }
 
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { resetTasks } from '../actions/kanBanPostActions'
 
 class EditTask extends React.Component {
   constructor(props) {
@@ -26,8 +27,7 @@ class EditTask extends React.Component {
     });
   }
 
-  myHandleSubmit(event){
-    const { dispatch } = this.props;
+  myHandleSubmit(event, req){
     const newCard = {
       title: this.state.task,
       priority: this.state.priority,
@@ -36,28 +36,30 @@ class EditTask extends React.Component {
       assignedTo: this.state.assignedTo
     }
 
-    const oReq = new XMLHttpRequest();
-
-    oReq.addEventListener("load", ()=>{
-      // dispatch(addTask(newCard))
-    });
-    oReq.addEventListener("error", ()=>{
-      alert('error')
-    });
-    oReq.open("PUT", `/api/card/${this.props.id}`);
-    oReq.setRequestHeader('Content-Type', 'application/json');
-    oReq.send(JSON.stringify(newCard));
+    // const oReq = new XMLHttpRequest();
+    req.open("PUT", `/api/card/${this.props.id}`);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.send(JSON.stringify(newCard));
   }
 
   handleSubmit(event) {
-    this.myHandleSubmit(event);
+    event.preventDefault();
+    const oReq = new XMLHttpRequest();
+    this.props.hideFormOnSubmit(event);
+    this.myHandleSubmit(event, oReq);
+    oReq.addEventListener('load', (event) => {
+      const { dispatch } = this.props;
+      console.log('event.currentTarget: ', event.currentTarget);
+      const parsedServerData = JSON.parse(event.currentTarget.response);
+      parsedServerData.position = this.props.position;
+      dispatch(resetTasks(parsedServerData));
+    })
   }
 
   render(){
-    console.log('this.props: ', this.props);
     return(
       <form onSubmit={this.handleSubmit.bind(this)}>
-      <h1>Edit Page</h1>
+      <h1>Edit Task</h1>
         <label>
           Task:
           <br />

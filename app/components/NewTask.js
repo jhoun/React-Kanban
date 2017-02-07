@@ -14,7 +14,6 @@ class NewTask extends React.Component {
       assignedTo: ''
     };
 
-
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,9 +29,7 @@ class NewTask extends React.Component {
   }
 
   myHandleSubmit(event){
-    console.log('this.props: ', this.props);
     const { dispatch } = this.props;
-    console.log('this.state: ', this.state);
     const newCard = {
       title: this.state.task,
       priority: this.state.priority,
@@ -58,7 +55,6 @@ class NewTask extends React.Component {
     this.myHandleSubmit(event);
     event.preventDefault();
   }
-
 
   render() {
 
@@ -121,7 +117,6 @@ class NewTask extends React.Component {
     );
   }
 }
-
 
 //coming in from the store
 const mapStateToProps = (state, ownProps) => {

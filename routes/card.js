@@ -49,7 +49,6 @@ router.route('/:id')
       });
   })
   .put((req, res) => {
-    console.log('req.body..inCard: ', req.body);
     Card.update({
       title: req.body.title,
       priority:req.body.priority,
@@ -59,10 +58,11 @@ router.route('/:id')
     } , {
       where: {
         id : req.params.id
-      }
+      },
+      returning: true
     })
     .then((card) => {
-      res.json(card)
+      res.json(card[1][0])
     })
     .catch((e) =>{
         console.error(e);

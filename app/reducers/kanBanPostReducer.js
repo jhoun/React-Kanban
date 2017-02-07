@@ -1,38 +1,52 @@
 import { List } from 'immutable';
-import { SET_TASKS, DELETE_TASK, ADD_TASK } from '../actions/kanBanPostActions';
+import { SET_TASKS, DELETE_TASK, ADD_TASK, RESET_TASKS } from '../actions/kanBanPostActions';
 
 const initialState = List();
 
 const kanBanPostReducer =  (state = initialState, action) => {
-  let newState = state;
+  let newState;
 
-  function indexedCards(item){
-    return List(item)
-  }
+  // function indexedCards(item){
+  //   return List(item)
+  // }
 
   switch(action.type) {
     case SET_TASKS:
-      let index = action.data.map((item, i) => {
+      newState = action.data.map((item, i) => {
         item['position'] = i
         return item
       })
-      return indexedCards(index);
+      return List(newState);
 
     case DELETE_TASK:
-      let newIndex = newState.delete(action.data).map((item, i) =>{
+      newState = newState.delete(action.data).map((item, i) =>{
         item['position'] = i
         return item
       })
-      return indexedCards(newIndex);
+      return List(newState);
 
     case ADD_TASK:
-      let addIndex = newState.push(action.data).map((item, i) =>{
+      newState = newState.push(action.data).map((item, i) =>{
         return item
       })
-      return indexedCards(addIndex);
+      return List(newState);
+
+    case RESET_TASKS:
+    console.log('action: ', action);
+    console.log('action.data: ', action.data);
+    console.log('newState: ', newState);
+    console.log('state: ', state);
+
+    newState = state.update(action.data.position, (card) => {
+      console.log('card: ', card);
+      // console.log('action.data: ', action.data);
+      return action.data;
+    })
+    console.log('newState.toJS(): ', newState.toJS());
+    return List(newState);
 
     default:
-      return newState;
+      return state;
   }
 };
 

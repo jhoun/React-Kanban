@@ -54,22 +54,22 @@ class ColumnsPage extends React.Component {
     var inInQueue = this.props.data.filter(isInQueue);
     var inProgress = this.props.data.filter(isInProgress);
     var done = this.props.data.filter(isDone);
-
+    console.log('this.props.data: ', this.props.data);
     return (
     <div className={styles.columnPage}>
 
       <div>
-        <h3>In Queue</h3>
+        <div className={styles.columns}>IN QUEUE</div>
           <Column serverData={inInQueue}/>
       </div>
 
       <div>
-        <h3>In Progress</h3>
+        <div className={styles.columns}>IN PROGRESS</div>
         <Column serverData={inProgress}/>
       </div>
 
       <div>
-        <h3>Done</h3>
+        <div className={styles.columns}>DONE</div>
         <Column serverData={done}/>
       </div>
 
