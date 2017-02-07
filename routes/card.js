@@ -49,6 +49,7 @@ router.route('/:id')
       });
   })
   .put((req, res) => {
+    console.log('req.body..inCard: ', req.body);
     Card.update({
       title: req.body.title,
       priority:req.body.priority,

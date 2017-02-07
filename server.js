@@ -26,7 +26,6 @@ app.use(bodyParser.json({
 
 
 app.use((req, res, next) => {
-  console.log('req.body: ', req.body);
   next('route');
 })
 

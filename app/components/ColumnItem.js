@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './ColumnItem.scss';
 import { deleteTask } from '../actions/kanBanPostActions';
-import { Link } from 'react-router';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -14,7 +13,6 @@ class EditForm extends React.Component {
       createdBy: '',
       assignedTo: ''
     };
-
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,9 +29,7 @@ class EditForm extends React.Component {
   }
 
   myHandleSubmit(event){
-    console.log('this.props: ', this.props);
     const { dispatch } = this.props;
-    console.log('this.state: ', this.state);
     const newCard = {
       title: this.state.task,
       priority: this.state.priority,
@@ -43,25 +39,26 @@ class EditForm extends React.Component {
     }
 
     const oReq = new XMLHttpRequest();
+
     oReq.addEventListener("load", ()=>{
-      dispatch(addTask(newCard))
+      // dispatch(addTask(newCard))
     });
     oReq.addEventListener("error", ()=>{
       alert('error')
     });
-    oReq.open("PUT", `/api/card`);
+    oReq.open("PUT", `/api/card/${this.props.id}`);
     oReq.setRequestHeader('Content-Type', 'application/json');
     oReq.send(JSON.stringify(newCard));
   }
 
   handleSubmit(event) {
-    this.props.router.push('/');
     this.myHandleSubmit(event);
-    event.preventDefault();
   }
+
   render(){
+    console.log('this.props: ', this.props);
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit.bind(this)}>
       <h1>Edit Page</h1>
         <label>
           Task:
@@ -143,7 +140,7 @@ class ColumnItem extends React.Component {
   }
 
   editTask(e){
-    console.log('this.props: ', this.props);
+    console.log('this.props: ', this);
     e.preventDefault();
     this.setState({showReply: !this.state.showReply})
   }
@@ -157,7 +154,7 @@ class ColumnItem extends React.Component {
       <div className={styles.createdBy}>{this.props.createdBy}</div>
       <button onClick={this.editTask.bind(this)}>Edit</button>
       <button onClick={this.deleteTask}>Delete</button>
-      {this.state.showReply && < EditForm / >}
+      {this.state.showReply && < EditForm { ...this.props }/ >}
     </div>
     )
   }
