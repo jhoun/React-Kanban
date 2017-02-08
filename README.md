@@ -5,40 +5,25 @@
 
 > "The Kanban technique emerged in the late 1940s as Toyota’s reimagined approach to manufacturing and engineering. ... The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value." - [via LeanKit.com](http://leankit.com/learn/kanban/kanban-board/)
 
-## Introduction
-Build a Digital Kanban board using:
+## Applications
+Built a Digital Kanban board using:
 - **React** for building the front-end User-Interface (UI)
-- HTML and CSS (via [sass](https://sass-lang.com))
+- **SASS** for styling HTML and CSS
 - **Express** as the Server
 - **Sequelize** as your ORM for the **Postgresql** Datastore.
-
-## Layout/Style Guide
-![screen shot 2016-11-04 at 1 21 12 pm](https://cloud.githubusercontent.com/assets/4650739/20025357/afd23626-a291-11e6-9d34-667a64ead92d.png)
+- **Webpack** for generating static assests
 
 
-## Specifications
+## Setting Up Project
 
-### Card (component)
-Cards contain information about a task.
-
-#### Card Properties
-
-A Card has 6 properties:
-  1. A unique identifier, e.g. "Card-Id #001".
-  1. A Title
-  1. A priority selection
-  1. A status, the status of a card. Should match the column the card can be found in. Columns: "Queue", "In Progress", or "Done".
-  1. A "Created by" field. This should display name of the person who created the task.
-  1. An "Assigned to field". This should display the name of the person who is currently working on the task.
-
-#### Creating a new Card
-There should be a form which is used to create a new Card. When a card is first created we need minimal information, the information needed is:
-  - Title (String)
-  - Priority (low, Medium, High, Blocker)
-  - Created By (Full Name)
-  - Assigned To (Full Name)
-
-All other fields are not needed when creating a new Card. The other fields: "Unique Identifier", and "Status" fields will be automatically added by the application.
+1. Clone with SSH to your local machine
+1. Create a database in your psql
+1. Rename config_example.json to config.json
+  - Fill in appropriate inputs
+1. Run 'sequelize db:migrate' to import table into your database
+1. Run 'sequelize db:seed:all' to import data into your table
+1. Run 'npm install'
+1. Run 'node server.js' to start your server
 
 ### Cards in Columns
 When a Card appears in a column there should be a way (something clickable?) to move that card to either the next or previous column.
