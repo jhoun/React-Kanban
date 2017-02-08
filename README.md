@@ -32,7 +32,7 @@ Built a Digital Kanban board using:
 
 ## References
 
-### Kanban Servies
+### Kanban Services
 
 [Trello](http://www.trello.com)
 
