@@ -12,7 +12,7 @@ class Column extends React.Component {
           status={item.status}
           assignedTo={item.assignedTo}
           createdBy={item.createdBy}
-          key={i}
+          key={item.id}
           id={item.id}
           position={item.position}
         />

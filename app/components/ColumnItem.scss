@@ -16,15 +16,28 @@
 
   .body {
     text-align: left;
-    margin-top: 7px;
+    margin-top: 3px;
     margin-left: 20px;
     font-size: .85em;
   }
 
   .links{
-    margin-left: 20px;
     margin-bottom: 10px;
-    color: #F8C278;
+    margin-left: 20px;
+    margin-top: -10px;
+    font-size: .80em;
+    font-weight: bold;
+
+    .edit {
+      color: #F8C278;
+      text-decoration: none;
+    }
+
+    .delete {
+      color: #F8C278;
+      text-decoration: none;
+      margin-left: 10px;
+    }
   }
 
   .createdBy {

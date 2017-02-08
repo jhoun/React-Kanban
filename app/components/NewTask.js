@@ -51,9 +51,9 @@ class NewTask extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     this.props.router.push('/');
     this.myHandleSubmit(event);
-    event.preventDefault();
   }
 
   render() {

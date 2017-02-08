@@ -10,8 +10,6 @@ class ColumnsPage extends React.Component {
     super();
 
     //React only updates if there is a change in state
-
-
     this.onServerData = this.onServerData.bind(this);
     this.onServerError = this.onServerError.bind(this);
   }
@@ -37,6 +35,7 @@ class ColumnsPage extends React.Component {
   componentWillMount(){
     this.loadDataFromServer();
   }
+
   render() {
     function isInQueue(value){
       return value.status === "queue";
@@ -50,11 +49,10 @@ class ColumnsPage extends React.Component {
       return value.status === "done";
     }
 
-
     var inInQueue = this.props.data.filter(isInQueue);
     var inProgress = this.props.data.filter(isInProgress);
     var done = this.props.data.filter(isDone);
-    console.log('this.props.data: ', this.props.data);
+
     return (
     <div className={styles.columnPage}>
 

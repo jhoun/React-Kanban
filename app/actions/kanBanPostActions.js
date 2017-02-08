@@ -11,6 +11,7 @@ export const setTasks = (data) => {
 }
 
 export const deleteTask = (data) => {
+    console.log('data: ', data);
   return {
     type: DELETE_TASK,
     data,
@@ -25,7 +26,6 @@ export const addTask = (data) => {
 }
 
 export const resetTasks = (data) => {
-  console.log('data: ', data);
   return {
     type: RESET_TASKS,
     data,

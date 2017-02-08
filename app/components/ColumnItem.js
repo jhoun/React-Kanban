@@ -9,14 +9,12 @@ class ColumnItem extends React.Component {
     super();
     this.deleteTask = this.deleteTask.bind(this);
     this.editTask = this.editTask.bind(this);
-    this.state ={
-      showReply: false
-    }
+    this.state = {showReply: false};
   }
 
-  deleteTask(){
+  deleteTask(event){
     const { dispatch } = this.props;
-    dispatch(deleteTask(this.props.position))
+    dispatch(deleteTask(this.props.position));
     this.deleteDataFromServer();
 
   }
@@ -40,8 +38,8 @@ class ColumnItem extends React.Component {
       <div className={styles.body}>assignedTo: {this.props.assignedTo}</div>
       <div className={styles.createdBy}>{this.props.createdBy}</div>
       <div className={styles.links}>
-        <a onClick={this.editTask.bind(this)}>Edit</a>
-        <a onClick={this.deleteTask}>Delete</a>
+        <a className={styles.edit} href="#" onClick={this.editTask.bind(this)}>Edit</a>
+        <a className={styles.delete} href="#" onClick={this.deleteTask}>Delete</a>
       </div>
       {this.state.showReply && < EditTask { ...this.props } hideFormOnSubmit={this.editTask.bind(this)}/ >}
     </div>
