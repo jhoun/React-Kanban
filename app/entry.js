@@ -12,6 +12,7 @@ import * as reducers from './reducers';
 import App from "./components/App";
 import ColumnsPage from "./components/ColumnsPage";
 import NewTask from "./components/NewTask";
+import NoMatch from "./static/NoMatch";
 
 
 const reducer = combineReducers(reducers);
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Route path="/" component={ App }>
         <IndexRoute component={ ColumnsPage } />
         <Route path="/new-task" component={ NewTask } />
+        <Route path="/*" component={ NoMatch } />
       </Route>
     </Router>
   </Provider>,
