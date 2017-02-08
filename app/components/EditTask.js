@@ -5,12 +5,13 @@ import { resetTasks } from '../actions/kanBanPostActions'
 class EditTask extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      task: '',
-      priority: '',
+      task: this.props.title,
+      priority: this.props.priority,
       status: 'queue',
-      createdBy: '',
-      assignedTo: ''
+      createdBy: this.props.createdBy,
+      assignedTo: this.props.assignedTo
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -36,7 +37,6 @@ class EditTask extends React.Component {
       assignedTo: this.state.assignedTo
     }
 
-    // const oReq = new XMLHttpRequest();
     req.open("PUT", `/api/card/${this.props.id}`);
     req.setRequestHeader('Content-Type', 'application/json');
     req.send(JSON.stringify(newCard));
@@ -49,7 +49,6 @@ class EditTask extends React.Component {
     this.myHandleSubmit(event, oReq);
     oReq.addEventListener('load', (event) => {
       const { dispatch } = this.props;
-      console.log('event.currentTarget: ', event.currentTarget);
       const parsedServerData = JSON.parse(event.currentTarget.response);
       parsedServerData.position = this.props.position;
       dispatch(resetTasks(parsedServerData));
