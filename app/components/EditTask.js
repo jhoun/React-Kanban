@@ -8,7 +8,7 @@ class EditTask extends React.Component {
     this.state = {
       task: '',
       priority: '',
-      status: 'inProgress',
+      status: 'queue',
       createdBy: '',
       assignedTo: ''
     };
@@ -83,11 +83,11 @@ class EditTask extends React.Component {
         <label>
           Status:
           <br />
-          <input
-            name="status"
-            type="text"
-            value={this.state.status}
-            onChange={this.handleInputChange} />
+          <select name="status" value={this.state.status} onChange={this.handleInputChange}>
+            <option value="queue">Queue</option>
+            <option value="inProgress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
         </label>
         <br />
         <label>
