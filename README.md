@@ -1,7 +1,7 @@
 # React Kanban
 > A digital Kanban board made with React
 
-![kanban_guide_print_kpo_bleed_board2-1024x517](http://i.imgur.com/r7iC8ni.png)
+![alt tag](http://i.imgur.com/r7iC8ni.png)
 
 ![kanban_guide_print_kpo_bleed_board2-1024x517](http://i.imgur.com/qzeLiYF.png)
 
@@ -14,7 +14,7 @@ Built a Digital Kanban board using:
 - **React** & **Redux** for building the front-end User-Interface (UI)
 - **SASS** for styling HTML and CSS
 - **Express** as the Server
-- **Sequelize** as your ORM for the **Postgresql** Datastore.
+- **Sequelize** as the ORM for **Postgresql** Datastore.
 - **Webpack** for generating static assests
 
 
