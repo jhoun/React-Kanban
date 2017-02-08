@@ -1,7 +1,7 @@
 # React Kanban
 > A digital Kanban board made with React
 
-![kanban_guide_print_kpo_bleed_board2-1024x517](https://cloud.githubusercontent.com/assets/4650739/15059276/3bb2092e-12bd-11e6-9c12-d92747e77bc5.jpg)
+![kanban_guide_print_kpo_bleed_board2-1024x517](http://i.imgur.com/NhbC7rd.png)
 
 > "The Kanban technique emerged in the late 1940s as Toyota’s reimagined approach to manufacturing and engineering. ... The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value." - [via LeanKit.com](http://leankit.com/learn/kanban/kanban-board/)
 
@@ -68,7 +68,7 @@ Build an Express server which will serve your `index.html` and static assets.
 Your server will have these routes:
   - RESTful API endpoints to create, read, update, and delete kanban cards for your application.
     - Remember to use MVC architechture: Models, Views, Controllers!
-  - One route to 
+  - One route to
 
 ### Database
 MongoDB and Mongoose (ORM). Create a UML Schema for your database, consider [LucidChart](https://www.lucidchart.com/). Add these diagrams to your project.
