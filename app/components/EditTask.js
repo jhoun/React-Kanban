@@ -106,7 +106,9 @@ class EditTask extends React.Component {
             name="assignedTo"
             type="text"
             value={this.state.assignedTo}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange}
+            onFocus={this.selectAll}
+             />
         </label>
         <br />
        <input type="submit" value="Submit"/>
