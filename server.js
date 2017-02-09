@@ -25,6 +25,8 @@ app.use(bodyParser.json({
   extended:true
 }));
 
+  console.log('HIT');
+  console.log('req: ', req);
 
 app.use((req, res, next) => {
   next('route');
