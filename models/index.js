@@ -13,7 +13,7 @@ if (DB_URL) {
     dialect:  'postgres',
     protocol: 'postgres',
     port:     5432,
-    host:     'https://enigmatic-eyrie-11354.herokuapp.com/',
+    host:     'ec2-54-204-0-88.compute-1.amazonaws.com',
     logging:  true
   });
 } else {
