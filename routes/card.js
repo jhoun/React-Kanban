@@ -5,9 +5,9 @@ const Card = db.Card;
 
 router.route('/')
   .get((req, res) => {
+      console.log('RETURNED QUERY');
     Card.findAll()
     .then((card)  => {
-      console.log('RETURNED QUERY');
       res.json(card);
     })
     .catch((e) =>{

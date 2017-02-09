@@ -7,7 +7,7 @@ var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
 var db        = {};
 var DB_URL    = process.env.DATABASE_URL || null;
-console.log('DB_URL: ', DB_URL);
+
 if (DB_URL) {
   var sequelize = new Sequelize(DB_URL, {
     dialect:  'postgres',
@@ -16,7 +16,6 @@ if (DB_URL) {
     host:     'https://enigmatic-eyrie-11354.herokuapp.com/',
     logging:  true
   });
-  console.log('sequelize: ', sequelize);
 } else {
   console.log('SHOULD NOT BE DEVELOPMENT');
   var config    = require(__dirname + '/../config/config.json')[env];
