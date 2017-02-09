@@ -61,12 +61,12 @@ if (isDeveloping) {
 
 } else {
   app.use(express.static(`${__dirname}/dist`));
-  // app.get('*', (req, res) => {
-  //   res.write(
-  //     fs.readFileSync(path.resolve(__dirname, 'dist/index.html'))
-  //   );
-  //   res.end();
-  // });
+  app.get('*', (req, res) => {
+    res.write(
+      fs.readFileSync(path.resolve(__dirname, 'dist/index.html'))
+    );
+    res.end();
+  });
 }
 
 const onStart = (err) => {
