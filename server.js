@@ -10,8 +10,8 @@ const fs = require('fs');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const devConfig = require('./app/webpack.dev.config.js');
-const prodConfig = require('./app/webpack.prod.config.js');
+const devConfig = require('./webpack.dev.config.js');
+
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
