@@ -26,7 +26,7 @@ app.use(bodyParser.json({
   extended:true
 }));
 
-  console.log('HIT');
+
 
 app.use((req, res, next) => {
   next('route');
@@ -60,7 +60,7 @@ if (isDeveloping) {
   app.get('*', response);
 
 } else {
-
+  console.log('Production');
   app.use(express.static(`${__dirname}/dist`));
   app.get('*', (req, res) => {
     res.write(
