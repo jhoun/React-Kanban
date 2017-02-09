@@ -15,6 +15,7 @@ const prodConfig = require('./app/webpack.prod.config.js');
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
+console.log('isDeveloping: ', isDeveloping);
 const port = isDeveloping ? 3000 : process.env.PORT;
 
 app.use(bodyParser.urlencoded({
