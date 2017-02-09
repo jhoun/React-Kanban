@@ -10,7 +10,8 @@ const fs = require('fs');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./app/webpack.config.js');
+const devConfig = require('./app/webpack.dev.config.js');
+const prodConfig = require('./app/webpack.prod.config.js');
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -33,9 +34,9 @@ app.use('/api/card', cards);
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
-  const compiler = webpack(config);
+  const compiler = webpack(devConfig);
   const middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: devConfig.output.publicPath,
     contentBase: 'src',
     stats: {
       colors: true,
@@ -55,7 +56,9 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
   //put routes before here
   app.get('*', response);
+
 } else {
+
   app.use(express.static(`${__dirname}/dist`));
   app.get('*', (req, res) => {
     res.write(
