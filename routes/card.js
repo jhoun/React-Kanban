@@ -7,6 +7,7 @@ router.route('/')
   .get((req, res) => {
     Card.findAll()
     .then((card)  => {
+      console.log('RETURNED QUERY');
       res.json(card);
     })
     .catch((e) =>{

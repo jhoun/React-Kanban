@@ -16,6 +16,7 @@ if (DB_URL) {
     host:     'https://enigmatic-eyrie-11354.herokuapp.com/',
     logging:  true
   });
+  console.log('sequelize: ', sequelize);
 } else {
   console.log('SHOULD NOT BE DEVELOPMENT');
   var config    = require(__dirname + '/../config/config.json')[env];
