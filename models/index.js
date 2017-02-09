@@ -6,14 +6,14 @@ var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
 var db        = {};
-var PORT      = process.env.PORT || 5432;
-
-if (process.env.DATABASE_URL) {
-  var sequelize = new Sequelize(process.env.DATABASE_URL, {
+var DB_URL    = process.env.DATABASE_URL || null;
+console.log('DB_URL: ', DB_URL);
+if (DB_URL) {
+  var sequelize = new Sequelize(DB_URL, {
     dialect:  'postgres',
     protocol: 'postgres',
-    port:     PORT,
-    host:     match[3],
+    port:     5432,
+    host:     'https://enigmatic-eyrie-11354.herokuapp.com/',
     logging:  true
   });
 } else {
