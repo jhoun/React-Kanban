@@ -17,6 +17,7 @@ if (process.env.DATABASE_URL) {
     logging:  true
   });
 } else {
+  console.log('SHOULD NOT BE DEVELOPMENT');
   var config    = require(__dirname + '/../config/config.json')[env];
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
