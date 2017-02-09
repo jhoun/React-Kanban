@@ -12,7 +12,7 @@ import * as reducers from './reducers';
 import App from "./components/App";
 import ColumnsPage from "./components/ColumnsPage";
 import NewTask from "./components/NewTask";
-import NoMatch from "./static/NoMatch";
+import NoMatch from "./static/noMatch";
 
 
 const reducer = combineReducers(reducers);
