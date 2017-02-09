@@ -81,6 +81,6 @@ const onStart = (err) => {
   db.sequelize.sync();
 };
 
-app.listen(port, 'localhost', onStart);
+app.listen(port, onStart);
 
 module.exports = app;
