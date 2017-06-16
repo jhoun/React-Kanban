@@ -2,12 +2,13 @@
   background: white;
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding-bottom: 100px;
   font-family: 'Roboto', sans-serif;
   width: 100%;
 
   .columnContainer {
-    width: 300px;
+    width: 450px;
   }
 
   .columns {
