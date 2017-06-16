@@ -56,17 +56,17 @@ class ColumnsPage extends React.Component {
     return (
     <div className={styles.columnPage}>
 
-      <div>
+      <div className={styles.columnContainer}>
         <div className={styles.columns}>IN QUEUE</div>
           <Column serverData={inInQueue}/>
       </div>
 
-      <div>
+      <div className={styles.columnContainer}>
         <div className={styles.columns}>IN PROGRESS</div>
         <Column serverData={inProgress}/>
       </div>
 
-      <div>
+      <div className={styles.columnContainer}>
         <div className={styles.columns}>DONE</div>
         <Column serverData={done}/>
       </div>
