@@ -8,9 +8,9 @@
 ![kanban_guide_print_kpo_bleed_board2-1024x517](http://i.imgur.com/6dgzB53.png)
 
 
+
 Did you forget to take out the trash? Next time, use React Kanban to help you set your tasks! Click the New Task button and fill in the appropriate information. Need to edit something or move from "IN PROGRESS” to “DONE" ? Simply click the Edit button to change it up. Don’t want to see the task anymore? Hit the Delete button.
 
-> "The Kanban technique emerged in the late 1940s as Toyota’s reimagined approach to manufacturing and engineering. ... The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value." - [via LeanKit.com](http://leankit.com/learn/kanban/kanban-board/)
 
 ## Applications
 - **NodeJS**
@@ -44,6 +44,8 @@ Did you forget to take out the trash? Next time, use React Kanban to help you se
 
 
 ## References
+
+> "The Kanban technique emerged in the late 1940s as Toyota’s reimagined approach to manufacturing and engineering. ... The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value." - [via LeanKit.com](http://leankit.com/learn/kanban/kanban-board/)
 
 ### Kanban Services
 
