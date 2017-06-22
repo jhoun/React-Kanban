@@ -22,16 +22,6 @@ Did you forget to take out the trash? Next time, use React Kanban to help you se
 
 ## Setting Up Project
 
-1. Clone with SSH to your local machine
-1. Run `npm install`
-1. Create a database in your psql
-1. Rename config_example.json to config.json
-      - Fill in appropriate inputs
-1. Run `sequelize db:migrate` to import table into your database
-1. Run `sequelize db:seed:all` to import data into your table
-1. Run `node server.js` to start your server
-
-
 1. install dependencies
 
       `npm install`
